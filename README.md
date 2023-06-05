@@ -3,7 +3,7 @@
 - [x] Check number tx success
 - [x] Check bridge deposit
 - [x] Check bridge withdraw
-- [ ] Check volume
+- [x] Check volume
 - [ ] Check number tx fail
 - [ ] Check number tx pending
 - [ ] Check number contract interacted
@@ -29,20 +29,26 @@ pip3 install git+https://github.com/bxdoan/py-scroll-state.git
 from src.scroll_state import ScrollState
 address = "0x34FED72c7fA60ab0da7070c06Dd1DaD5d8B889Fb"
 ss = ScrollState(address=address)
-number_tx_success = ss.number_tx_success()
-print(f"Number of tx success: {number_tx_success}")
+print(f"Number of tx        : {len(ss.tx_list_external())}")
+print(f"Number of tx success: {ss.number_tx_success()}")
 deposit = ss.deposit()
 print(f"Bridge deposit : {deposit} ETH")
 withdraw = round(ss.withdraw(), 2)
 print(f"Bridge withdraw: {withdraw} ETH")
+volume = round(ss.volume(), 2)
+print(f"Total volume   : {volume} ETH")
+print(f"Total gas used : {ss.gas_used()} ETH")
 ```
 
-Result dict
+Result:
 
 ```python3
-Number of tx success: 7
-Bridge deposit : 0.14 ETH
-Bridge withdraw: 0.0 ETH
+Number of tx        : 33
+Number of tx success: 28
+Bridge deposit : 0.93 ETH
+Bridge withdraw: 0.33 ETH
+Total volume   : 1.56 ETH
+Total gas used : 6.074319e-12 ETH
 ```
 
 </details>
