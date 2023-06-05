@@ -1,5 +1,12 @@
 # py-scroll-state
-Scroll Network state script support for incentive program
+[Scroll Network](https://scroll.io/alpha) state script support for incentive program
+- [x] Check number tx success
+- [x] Check bridge deposit
+- [x] Check bridge withdraw
+- [ ] Check volume
+- [ ] Check number tx fail
+- [ ] Check number tx pending
+- [ ] Check number contract interacted
 
 ## Install package
 ```sh
@@ -8,6 +15,10 @@ pip3 install -r requirements.txt
 or using pipenv
 ```sh
 pipenv sync
+```
+
+```shell
+pip3 install git+https://github.com/bxdoan/py-scroll-state.git
 ```
 
 ## Usage
